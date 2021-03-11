@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    overflow: hidden;
+}
+section{
+    display: flex;/*采用flex布局*/
+    justify-content: center;/*项目在主轴上中心对其*/
+    align-items: center;/*项目在交叉轴上居中对齐*/
+    min-height: 100vh;/*相对视口大小100%*/
+    background: linear-gradient(to bottom,#f1f4f9,#dff1ff);/*从上到下颜色渐变*/
+}
+section .color{
+    position: absolute;
+    filter: blur(150px);/*添加滤镜高斯模糊*/
+}
+section .color:nth-child(1){
+    top: -350px;
+    width: 600px;
+    height: 600px;
+    background: #ff359b;
+}/*第一个子元素样式*/
+section .color:nth-child(2){
+    bottom: -150px;
+    left: 100px;
+    width: 500px;
+    height: 500px;
+    background: #fffd87;
+}/*第二个子元素样式*/
+section .color:nth-child(3){
+    bottom: 50px;
+    right: 100px;
+    width: 300px;
+    height: 300px;
+    background: #00d2ff;
+}/*第三个子元素样式*/
+.box{
+    position: relative;
+}
+.box .square{
+    position: absolute;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(5px);/*使透过该层的底部元素模糊化*/
+    box-shadow: 0 25px 45px rgba(0,0,0,0.1);/*添加阴影，详情百度*/
+    border: 1px solid rgba(255,255,255,0.5);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    border-right: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px;
+    animation: animate 10s linear infinite;/*将动画绑定*/
+    animation-delay: calc(-1s * var(--i));
+}
+@keyframes animate {
+    0%,100%{
+        transform: translateY(-40px);
+    }
+    50%{
+        transform: translateY(40px);
+    }
+}
+.box .square:nth-child(1){
+    top: -50px;
+    right: -60px;
+    width: 100px;
+    height: 100px;
+}
+.box .square:nth-child(2){
+    top: 150px;
+    left: -100px;
+    width: 120px;
+    height: 120px;
+    z-index: 2;/*堆叠顺序*/
+}
+.box .square:nth-child(3){
+    bottom: 50px;
+    right: -60px;
+    width: 80px;
+    height: 80px;
+    z-index: 2;/*堆叠顺序*/
+}
+.box .square:nth-child(4){
+    bottom: -80px;
+    left: 100px;
+    width: 50px;
+    height: 50px;
+}
+.box .square:nth-child(5){
+    top: -80px;
+    left: 140px;
+    width: 60px;
+    height: 60px;
+}
+.container{
+    position: relative;
+    width: 400px;
+    min-height: 400px;
+    background: rgba(255,255,255,0.1);/*背景色透明度*/
+    border-radius: 10px;/*圆角边框*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);/*使透过该层的底部元素模糊化*/
+    box-shadow: 0 25px 45px rgba(0,0,0,0.1);/*添加阴影，详情百度*/
+    border: 1px solid rgba(255,255,255,0.5);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    border-right: 1px solid rgba(255,255,255,0.2);
+}
+.form{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+}
+.form h2{
+    position: relative;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+}
+.form h2::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+    width: 80px;
+    height: 4px;
+    background: #fff;
+}/*伪元素，content字段必须*/
+.form .inputBox{
+    width: 100%;
+    margin-top: 20px;
+}
+.form .inputBox input{
+    width: 100%;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 35px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    border-right: 1px solid rgba(255,255,255,0.2);
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: #fff;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.form .inputBox input::placeholder{
+    color: #fff;
+}
+.form .inputBox input[type="submit"]{
+    background: #fff;
+    color: #666;
+    max-width: 100px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+.forget{
+    margin-top: 5px;
+    color: #fff;
+}
+.forget a{
+    color: #fff;
+    font-weight: 600;
+}
+
