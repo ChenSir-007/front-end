@@ -1,7 +1,7 @@
 var border = new Array();
 var score = 0;
 
-$document.ready(function () {
+$(document).ready(function () {
     newgame();
 })
 
