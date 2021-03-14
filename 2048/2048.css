@@ -2,7 +2,6 @@
 body{
     font-family: 'Poppins', sans-serif;
     margin: 0px;
-    height: 100vh;
 }
 header{
     display: block;
@@ -53,7 +52,7 @@ header p{
 .number-cell{
     border-radius: 6px;
     font-family: Arial;
-    font-family: bold;
+    font-weight: bold;
     font-size: 60px;
     line-height: 100px;
     text-align: center;

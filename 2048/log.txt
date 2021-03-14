@@ -1,2 +1,5 @@
 2021/3/12/20：38
 修复了一个严重bug,应该使用$(document)而不是$document
+
+2021/3/14/16：40
+修复了函数noBlockHorizontal中return true 的问题，放在for循环的外面
