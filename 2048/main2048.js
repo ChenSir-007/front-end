@@ -1,5 +1,6 @@
 var board = new Array();
 var score = 0;
+var hasConflicted = new Array();
 
 $(document).ready(function () {
     newgame();
@@ -14,11 +15,14 @@ function newgame() {
 function init() {
     for (var i = 0;i < 4;i ++){
         board[i] = new Array();
+        hasConflicted[i] = new Array();
         for (var j = 0;j < 4;j ++){
             board[i][j] = 0;
+            hasConflicted[i][j] = false;
         }
     }
     updateBoardView();
+    score = 0;
 }
 
 function updateBoardView() {
@@ -43,6 +47,7 @@ function updateBoardView() {
                 theNumberCell.css('color',getNumberColor(board[i][j]));
                 theNumberCell.text(board[i][j]);//.text方法设置文本
             }
+            hasConflicted[i][j] = false;
         }
     }
 }
@@ -52,14 +57,26 @@ function generateOneNumber() {
         return false;
 
     //生成随机位置坐标
-    var randx = parseInt(Math.floor(Math.random() * 4));
-    var randy = parseInt(Math.floor(Math.random() * 4));
-    while (true){
-        if (board[randx][randy] == 0)
-            break;
-        var randx = parseInt(Math.floor(Math.random() * 4));
-        var randy = parseInt(Math.floor(Math.random() * 4));
+    // var randx = parseInt(Math.floor(Math.random() * 4));
+    // var randy = parseInt(Math.floor(Math.random() * 4));
+    // while (true){
+    //     if (board[randx][randy] == 0)
+    //         break;
+    //     var randx = parseInt(Math.floor(Math.random() * 4));
+    //     var randy = parseInt(Math.floor(Math.random() * 4));
+    // }
+    var tempObj = [];
+    for(var i=0;i<4;i++){
+        for(var j=0;j<4;j++){
+            if(board[i][j] == 0){
+                tempObj.push(i+","+j);
+            }
+        }
     }
+    console.log(tempObj);
+    var randNum = parseInt(Math.floor(Math.random()*tempObj.length)),
+        randx = parseInt(tempObj[randNum].split(",")[0]),
+        randy = parseInt(tempObj[randNum].split(",")[1]);
     //生成随机数
     var randNumber = Math.random() < 0.5 ? 2 : 4;
     //在随机位置显示随机数字
@@ -129,11 +146,14 @@ function moveLeft() {
                         board[i][j] = 0;
                         continue;
                     }
-                    else if(board[i][k] == board[i][j] && noBlockHorizontal(i ,k ,j ,board)){
+                    else if(board[i][k] == board[i][j] && noBlockHorizontal(i ,k ,j ,board) && !hasConflicted[i][k]){
                         //move
                         showMoveAnimation( i , j , i , k);
                         board[i][k] += board[i][j];
                         board[i][j] = 0;
+                        score += board[i][k];
+                        updateScore(score);
+                        hasConflicted[i][k] = true;
                         continue;
                     }
                 }
@@ -160,10 +180,13 @@ function moveRight(){
                         board[i][j] = 0;
                         continue;
                     }
-                    else if( board[i][k] == board[i][j] && noBlockHorizontal( i , j , k , board ) ){
+                    else if( board[i][k] == board[i][j] && noBlockHorizontal( i , j , k , board ) && !hasConflicted[i][k] ){
                         showMoveAnimation( i , j , i , k);
                         board[i][k] *= 2;
                         board[i][j] = 0;
+                        score += board[i][k];
+                        updateScore(score);
+                        hasConflicted[i][k] = true;
 
                         continue;
                     }
@@ -192,10 +215,13 @@ function moveUp(){
                         board[i][j] = 0;
                         continue;
                     }
-                    else if( board[k][j] == board[i][j] && noBlockVertical( j , k , i , board ) ){
+                    else if( board[k][j] == board[i][j] && noBlockVertical( j , k , i , board ) && !hasConflicted[k][j] ){
                         showMoveAnimation( i , j , k , j );
                         board[k][j] *= 2;
                         board[i][j] = 0;
+                        score += board[k][j];
+                        updateScore(score);
+                        hasConflicted[k][j] = true;
 
                         continue;
                     }
@@ -223,10 +249,13 @@ function moveDown(){
                         board[i][j] = 0;
                         continue;
                     }
-                    else if( board[k][j] == board[i][j] && noBlockVertical( j , i , k , board ) ){
+                    else if( board[k][j] == board[i][j] && noBlockVertical( j , i , k , board ) && !hasConflicted[k][j] ){
                         showMoveAnimation( i , j , k , j );
                         board[k][j] *= 2;
                         board[i][j] = 0;
+                        score += board[k][j];
+                        updateScore(score);
+                        hasConflicted[k][j] = true;
 
                         continue;
                     }
