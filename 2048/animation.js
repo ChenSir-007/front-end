@@ -2,10 +2,11 @@ function showNumberWithAnimation(i,j,randNumber) {
     var numberCell = $('#number-cell-'+i+'-'+j);
     numberCell.css('background',getNumberBackgroundColor(randNumber));
     numberCell.css('color',getNumberColor(randNumber));
+    numberCell.css('border-radius',0.02*cellSideLength+'px')
     numberCell.text(randNumber);
     numberCell.animate({
-        width:"100px",
-        height:"100px",
+        width:cellSideLength,
+        height:cellSideLength,
         top:getPosTop(i,j),
         left:getPosLeft(i,j)
     },50);
