@@ -1,0 +1,8 @@
+2021.3.17 19：42
+严重bug:使用nodemon工具后，修改服务，卡在“restarting due to changes...”
+解决：尝试添加系统变量，添加start，都无果，最后采用了另一个工具，并能正常实时重启服务
+
+Use below two commands:
+
+npm install supervisor -g
+supervisor src/index.js

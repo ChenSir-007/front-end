@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>AJAX POST 请求</title>
+    <style>
+        #result{
+            width: 200px;
+            height: 100px;
+            border: solid 2px #ff359b;
+        }
+    </style>
+</head>
+<body>
+<div id="result"></div>
+<script>
+    const result = document.getElementById('result');
+    window.onkeydown = function () {
+        //发送请求
+        const xhr = new XMLHttpRequest();
+        //设置响应体数据类型
+        xhr.responseType = 'json';
+        //初始化
+        xhr.open('GET','http://127.0.0.1:8000/json-server');
+        //发送
+        xhr.send();
+        //事件绑定
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4){
+                if (xhr.status >= 200 && xhr.status < 300){
+                    // console.log(xhr.response);
+                    // result.innerHTML = xhr.response;
+                    //手动对数据进行转换
+                    // let data = JSON.parse(xhr.response);
+                    // console.log(data);
+                    console.log(xhr.response);
+                    result.innerHTML = xhr.response.name;
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

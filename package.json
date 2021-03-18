@@ -1,0 +1,24 @@
+{
+  "name": "Jack_Chen",
+  "version": "1.0.0",
+  "description": "这是创新实践的前端项目以及学习",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --watch src -e html,vue,js,less build/build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChenSir-007/front-end.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChenSir-007/front-end/issues"
+  },
+  "homepage": "https://github.com/ChenSir-007/front-end#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
