@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if_v-else</title>
+</head>
+<body>
+
+<script src="../vue.js"></script>
+<div id="app">
+    <h2 v-if="isShow">{{message}}</h2>
+    <h2 v-else>Show me</h2>
+</div>
+<script>
+    const app = new Vue({
+       el: '#app',
+       data:{
+           message: 'Hell Vue',
+           isShow: true
+       }
+    });
+</script>
+
+</body>
+</html>

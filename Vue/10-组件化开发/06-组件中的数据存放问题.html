@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件中的数据存放</title>
+</head>
+<body>
+<!--<script type="text/x-handlebars-template" id="cpn">-->
+<!--    <div>-->
+<!--        <h2>我是标题</h2>-->
+<!--    </div>-->
+<!--</script>-->
+<!--使用template标签-->
+<template id="cpn">
+    <div>
+        <h2>{{title}}</h2>
+    </div>
+</template>
+<script src="../vue.js"></script>
+<div id="app">
+    <cpn></cpn>
+</div>
+<script>
+    //注册一个全局组件
+    //组件有自己存放数据的地方，data是一个函数，且返回一个对象类型的值
+    Vue.component('cpn',{
+        template:'#cpn',
+        data(){
+            return{
+                title:'Hello'
+            }
+        }
+    })
+    const app = new Vue({
+        el: '#app',
+        data:{
+            message: 'Hell Vue'
+        }
+    });
+</script>
+</body>
+</html>

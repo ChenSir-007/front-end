@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind</title>
+</head>
+<body>
+<script src="../vue.js"></script>
+<div id="app">
+<!--    错误做法-->
+<!--    <img src="{{imgurl}}">-->
+<!--    正确做法-->
+    <img v-bind:src="imgUrl" alt="">
+<!--    语法糖写法-->
+    <a :href="aHref" target="_blank">百度一下</a>
+</div>
+<script>
+    const app = new Vue({
+       el: '#app',
+       data:{
+           message: 'Hell Vue',
+           imgUrl: '//img14.360buyimg.com/img/s200x200_jfs/t19429/345/2114569686/193072/6f671ab/5ae74720N203d91fc.jpg!cc_100x100.webp',
+           aHref: 'http://www.baidu.com'
+       }
+    });
+</script>
+</body>
+</html>

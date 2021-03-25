@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件模板分离写法</title>
+</head>
+<body>
+<!--<script type="text/x-handlebars-template" id="cpn">-->
+<!--    <div>-->
+<!--        <h2>我是标题</h2>-->
+<!--    </div>-->
+<!--</script>-->
+<!--使用template标签-->
+<template id="cpn">
+<div>
+    <h2>我不是标题</h2>
+</div>
+</template>
+<script src="../vue.js"></script>
+<div id="app">
+    <cpn></cpn>
+</div>
+<script>
+    //注册一个全局组件
+    Vue.component('cpn',{
+        template:'#cpn'
+    })
+    const app = new Vue({
+       el: '#app',
+       data:{
+           message: 'Hell Vue'
+       }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-elseif</title>
+</head>
+<body>
+
+<script src="../vue.js"></script>
+<div id="app">
+    <h2 v-if="score>=90">优秀</h2>
+    <h2 v-else-if="score>=80">良好</h2>
+    <h2 v-else-if="score>=60">及格</h2>
+    <h2 v-else>不及格</h2>
+</div>
+<script>
+    const app = new Vue({
+       el: '#app',
+       data:{
+           message: 'Hell Vue',
+           score: 90
+       }
+    });
+</script>
+
+</body>
+</html>

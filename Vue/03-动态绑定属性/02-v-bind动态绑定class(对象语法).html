@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>class绑定</title>
+    <style>
+        .active{
+            color: #ff359b;
+        }
+    </style>
+</head>
+<body>
+<script src="../vue.js"></script>
+<div id="app">
+<!--    类名跟一个布尔值可以选择性显示类名-->
+    <h2 v-bind:class="{active: isActive, line: isLine}">Hello</h2>
+    <button @click="btnClick">变色</button>
+</div>
+<script>
+    const app = new Vue({
+       el: '#app',
+       data:{
+           message: 'Hell Vue',
+           isActive: true,
+           isLine: true
+       },
+       methods:{
+           btnClick: function () {
+               this.isActive = !this.isActive
+           }
+        }
+    });
+</script>
+</body>
+</html>

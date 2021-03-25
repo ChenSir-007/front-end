@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-model结合select</title>
+</head>
+<body>
+
+<script src="../vue.js"></script>
+<div id="app">
+    <select name="fruit" v-model="fruit">
+        <option value="苹果">苹果</option>
+        <option value="香蕉">香蕉</option>
+        <option value="榴莲">榴莲</option>
+        <option value="葡萄">葡萄</option>
+    </select>
+    <h2>您选择的水果是{{fruit}}</h2>
+</div>
+<script>
+    const app = new Vue({
+       el: '#app',
+       data:{
+           message: 'Hell Vue',
+           fruit: '香蕉'
+       }
+    });
+</script>
+
+</body>
+</html>

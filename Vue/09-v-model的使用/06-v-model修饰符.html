@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-model修饰符</title>
+</head>
+<body>
+
+<script src="../vue.js"></script>
+<div id="app">
+<!--    修饰符：lazy,不进行实时更改-->
+    <input type="text" v-model.lazy="message">
+    <h2>{{message}}</h2>
+<!--    修饰符：number,防止变成字符串类型-->
+    <input type="number" v-model.number="age">
+    <h2>{{typeof age}}</h2>
+<!--    修饰符：trim,自动去除空格-->
+    <input type="text" v-model.trim="name">
+    <h2>{{name}}</h2>
+</div>
+<script>
+    const app = new Vue({
+       el: '#app',
+       data:{
+           message: 'Hell Vue',
+           age: 18,
+           name:''
+       }
+    });
+</script>
+
+</body>
+</html>

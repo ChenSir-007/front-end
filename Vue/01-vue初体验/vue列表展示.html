@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue列表展示</title>
+</head>
+<body>
+<div id="app">
+    <ul style="list-style-type: none">
+        <li v-for="item in movies">{{item}}</li>
+    </ul>
+</div>
+<script src="../vue.js"></script>
+<script>
+    const app =new Vue({
+        el:'#app',
+        data:{
+            message:'Hello',
+            movies:['哈利波特','阿凡达','流浪地球','紧急救援']
+        }
+    });
+</script>
+</body>
+</html>

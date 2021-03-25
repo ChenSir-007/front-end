@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态绑定style(对象语法)</title>
+</head>
+<body>
+
+<script src="../vue.js"></script>
+<div id="app">
+<!--    <h2 v-bind:style="{key(属性名): value(属性值)}">{{message}}</h2>-->
+    <h2 :style="{fontSize: finalSize}">{{message}}</h2>
+</div>
+<script>
+    const app = new Vue({
+       el: '#app',
+       data:{
+           message: 'Hell Vue',
+           finalSize: '50px'
+       }
+    });
+</script>
+
+</body>
+</html>

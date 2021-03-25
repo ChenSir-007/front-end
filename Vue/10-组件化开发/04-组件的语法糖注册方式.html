@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件的语法糖注册</title>
+</head>
+<body>
+
+<script src="../vue.js"></script>
+<div id="app">
+    {{message}}
+</div>
+<script>
+    //语法糖，合并了
+    Vue.component('cpn1',{
+        template:`
+        <div>
+        <h2>我是标题</h2>
+        <p>我是段落</p>
+        </div>`
+    })
+    const app = new Vue({
+       el: '#app',
+       data:{
+           message: 'Hell Vue'
+       }
+    });
+</script>
+
+</body>
+</html>

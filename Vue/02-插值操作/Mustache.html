@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mustache</title>
+    <script src="../vue.js"></script>
+</head>
+<body>
+<div id="app">
+<!--    插值表达式-->
+    <h2>{{message}}</h2>
+    <h2>{{message}},Hello</h2>
+    <h2>{{firstname+'_'+lastname}}</h2>
+</div>
+<script>
+    const app = new Vue({
+       el: '#app',
+       data: {
+           message: 'Mustache',
+           firstname: 'Chen',
+           lastname: 'Jack'
+       }
+    });
+</script>
+</body>
+</html>

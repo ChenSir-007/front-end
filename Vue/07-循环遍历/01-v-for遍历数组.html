@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-for遍历数组</title>
+</head>
+<body>
+<div id="app">
+<!--    在遍历中没有使用下标值-->
+    <ul style="list-style-type: none">
+        <li v-for="item in movies">{{item}}</li>
+    </ul>
+<!--    在遍历过程中使用下标值-->
+    <ul style="list-style-type: none">
+        <li v-for="(item,index) in movies">{{index+1}}.{{item}}</li>
+    </ul>
+</div>
+<script src="../vue.js"></script>
+<script>
+    const app =new Vue({
+        el:'#app',
+        data:{
+            message:'Hello',
+            movies:['哈利波特','阿凡达','流浪地球','紧急救援']
+        }
+    });
+</script>
+</body>
+</html>

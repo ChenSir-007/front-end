@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件通信(父传子)</title>
+</head>
+<body>
+<template id="cpn">
+    <div>
+        <h2>{{cmovies}}</h2>
+        <h2>{{cmessage}}</h2>
+    </div>
+</template>
+<script src="../vue.js"></script>
+<div id="app">
+    <cpn :cmovies="movies" :cmessage="message"></cpn>
+</div>
+<script>
+    //父传子通过props
+    //props传值方法1，通过字符串数组，数组中的字符串就是传递时的名称
+    //方法2通过对象传递
+    //注意不能使用驼峰标识，会报错
+    const cpn = {
+        template:`#cpn`,
+        data(){
+            return{}
+        },
+        // props:['cmovies','cmessage']
+        props:{
+            //类型限制
+            cmovies:Array,
+            cmessage:String,
+            //2，提供默认值
+            cmessage:{
+                type:String,
+                default:'Hello',
+                required:true//必须传值否则报错
+            }
+        }
+    }
+    const app = new Vue({
+       el: '#app',
+       data:{
+           message: 'Hell Vue',
+           movies:['海王','流浪地球','紧急救援','火影忍者']
+       },
+       components:{
+           cpn
+       }
+    });
+</script>
+
+</body>
+</html>

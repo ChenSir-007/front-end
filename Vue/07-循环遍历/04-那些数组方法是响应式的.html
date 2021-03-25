@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>响应式数组方法</title>
+</head>
+<body>
+
+<script src="../vue.js"></script>
+<div id="app">
+    <ul>
+        <li v-for="letter in letters">{{letter}}</li>
+    </ul>
+    <button @click="btnClick()">按钮</button>
+</div>
+<script>
+    const app = new Vue({
+       el: '#app',
+       data:{
+           letters:['C','B','A','D']
+       },
+       methods:{
+         btnClick(){
+             //push方法可以
+             //this.letters.push('aaa')
+             //pop方法可以
+             //this.letters.pop()
+             //shift方法可以
+             //this.letters.shift()
+             //unshift方法可以
+             //this.letters.unshift('aaa')
+             //splice作用：删除，修改，插入元素
+             //splice(从第几个元素开始,删除几个元素,追加元素)
+             // this.letters.splice(1,2,'M','N')
+             //sort(排序)
+             // this.letters.sort()
+             //reverse(反转)
+             // this.letters.reverse()
+
+
+             //注意：通过索引修改数组中的元素(不可以)
+             //this.letters[0] = 'aa'
+
+         }
+       }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-pre</title>
+</head>
+<body>
+<script src="../vue.js"></script>
+<div id="app">
+<!--    原封不动的展现不做解析-->
+    <h2 v-pre>{{message}}</h2>
+</div>
+<script>
+    const app = new Vue({
+       el: '#app',
+       data:{
+           message: 'Hell Vue'
+       }
+    });
+</script>
+</body>
+</html>

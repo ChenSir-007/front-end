@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-show</title>
+</head>
+<body>
+
+<script src="../vue.js"></script>
+<div id="app">
+<!--    v-if修饰的元素，当为false时不会存在dom中，而v-show修饰的元素为false时，只是隐藏了，还是存在的-->
+    <h2 v-show="isShow">{{message}}</h2>
+</div>
+<script>
+    const app = new Vue({
+       el: '#app',
+       data:{
+           message: 'Hell Vue',
+           isShow: true
+       }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>数据购物车</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="../vue.js"></script>
+
+</head>
+<body>
+
+<div id="app">
+    <div v-if="list.length">
+        <table>
+            <thead>
+            <tr>
+                <th></th>
+                <th>书籍名称</th>
+                <th>出版日期</th>
+                <th>价格</th>
+                <th>购买数量</th>
+                <th>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(item,index) in list">
+                <td>{{item.id}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.data}}</td>
+                <!--    添加过滤器来显示两位小数-->
+                <td>{{item.price | showPrice}}</td>
+                <td>
+                    <button @click="decrement(index)" :disabled="item.count<=1">-</button>
+                    {{item.count}}
+                    <button @click="increment(index)">+</button>
+                </td>
+                <td><button @click="removeHandle(index)">移除</button></td>
+            </tr>
+            </tbody>
+        </table>
+        <h2>总价格为:{{totalPrice|showPrice}}</h2>
+    </div>
+    <h2 v-else>购物车为空</h2>
+</div>
+<script src="main.js"></script>
+</body>
+</html>

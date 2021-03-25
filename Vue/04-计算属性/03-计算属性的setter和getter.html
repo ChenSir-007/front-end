@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>setter和getter</title>
+</head>
+<body>
+
+<script src="../vue.js"></script>
+<div id="app">
+    {{message}}
+</div>
+<script>
+    const app = new Vue({
+       el: '#app',
+       data:{
+           firstname: 'Chen',
+           lastname: 'Jack'
+       },
+       computed:{
+            // fullName: function (){
+            //     return this.firstname + ' ' + this.lastname
+            // }
+           //计算属性一般没有set方法，只读属性
+           fullName:{
+               // set: function () {
+               //
+               // },
+               get: function () {
+                   return this.firstname + ' ' + this.lastname
+               }
+           }
+        }
+    });
+</script>
+
+</body>
+</html>

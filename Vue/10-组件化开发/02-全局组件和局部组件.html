@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全局组件和局部组件</title>
+</head>
+<body>
+
+<script src="../vue.js"></script>
+<div id="app">
+    <cpn></cpn>
+</div>
+<script>
+    //创建组件构造器对象
+    const cpnC = Vue.extend({
+        template:`
+        <div>
+        <h2>我是标题</h2>
+        <p>我是段落</p>
+        </div>`
+    })
+    //注册组件(全局组件，可以在多个Vue实例下面使用)
+    // Vue.component('my-cpn',cpnC)
+
+    const app = new Vue({
+        el: '#app',
+        data:{
+            message: 'Hell Vue'
+        },
+        components:{
+            cpn:cpnC//局部组件，cpn为使用组件时的标签名，自定义
+        }
+    });
+</script>
+
+</body>
+</html>

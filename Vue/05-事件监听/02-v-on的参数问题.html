@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on的参数问题</title>
+</head>
+<body>
+
+<script src="../vue.js"></script>
+<div id="app">
+<!--    事件调用没有参数-->
+    <button @click="btnClick1()">按钮1</button>
+    <button @click="btnClick1">按钮2</button>
+<!--    事件调用有参数,加（）显示undefined,加（）并传参正常显示，不加（）则会传入浏览器自动生成的event-->
+    <button @click="btnClick2">按钮3</button>
+<!--    方法定义时，需要event对象，同时又需要其他参数,使用$event手动获取浏览器参数-->
+    <button @click="btnClick3(123,$event)">按钮4</button>
+    <button>按钮5</button>
+</div>
+<script>
+    const app = new Vue({
+       el: '#app',
+       data:{
+           message: 'Hell Vue'
+       },
+       methods:{
+           btnClick1(){
+               console.log('nothing')
+           },
+           btnClick2(event){
+               console.log('----',event)
+           },
+           btnClick3(abc,event){
+               console.log(abc,event)
+           }
+       }
+    });
+</script>
+
+</body>
+</html>

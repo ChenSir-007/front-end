@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-bind绑定style(数组语法)</title>
+</head>
+<body>
+
+<script src="../vue.js"></script>
+<div id="app">
+    <h2 :style="[baseStyle6]">{{message}}</h2>
+</div>
+<script>
+    const app = new Vue({
+       el: '#app',
+       data:{
+           message: 'Hell Vue',
+           baseStyle: {backgroundColor: 'red'}
+       }
+    });
+</script>
+
+</body>
+</html>

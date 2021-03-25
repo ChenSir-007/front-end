@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>computed和methods对比</title>
+</head>
+<body>
+
+<script src="../vue.js"></script>
+<div id="app">
+<!--    通过methods方法-->
+    <h2>{{getFullName()}}</h2>
+<!--    通过computed方法-->
+    <h2>{{fullName}}</h2>
+</div>
+<script>
+    const app = new Vue({
+       el: '#app',
+       data:{
+           firstname: 'Chen',
+           lastname: 'Jack'
+       },
+       methods:{
+           getFullName: function () {
+               return this.firstname + ' ' + this.lastname
+           }
+       },
+        //computed有缓存机制
+       computed:{
+           fullName: function (){
+               return this.firstname + ' ' + this.lastname
+           }
+       }
+    });
+</script>
+
+</body>
+</html>

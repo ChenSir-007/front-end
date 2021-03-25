@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-on修饰符</title>
+</head>
+<body>
+
+<script src="../vue.js"></script>
+<div id="app">
+<!--    stop修饰符使用-->
+    <div @click="divClick">
+        Hello<br>
+        <button @click.stop="btnClick">按钮</button>
+    </div>
+<!--    prevent修饰符使用-->
+    <form :action="url">
+        <input type="submit" value="提交" @click.prevent="submitClick">
+    </form>
+<!--    (键别名或键代码)监听键盘事件-->
+    <input type="text" @keyup.enter="keyUp">
+<!--    once修饰符的使用-->
+    <button @click.once="btnClick">按钮</button>
+</div>
+<script>
+    const app = new Vue({
+       el: '#app',
+       data:{
+           message: 'Hell Vue',
+           url: 'http://www.baidu.com/'
+       },
+       methods:{
+           btnClick(){
+               console.log('btnClick')
+           },
+           divClick(){
+               console.log('divClick')
+           },
+           submitClick(){
+               console.log('submitClick')
+           },
+           keyUp(){
+               console.log('keyUp')
+           }
+       }
+    });
+</script>
+
+</body>
+</html>
