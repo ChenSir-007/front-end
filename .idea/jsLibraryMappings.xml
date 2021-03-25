@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{jquery}" />
+    <file url="file://$PROJECT_DIR$/../nodejs/node_modules" libraries="{HTML, Jack_Chen/node_modules, jquery}" />
+    <file url="PROJECT" libraries="{HTML, Jack_Chen/node_modules, axios, jquery}" />
+    <includedPredefinedLibrary name="HTTP Response Handler" />
+    <includedPredefinedLibrary name="Node.js Core" />
   </component>
 </project>

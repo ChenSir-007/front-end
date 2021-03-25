@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Axios</title>
+    <script crossorigin="anonymous" src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.js"></script>
+</head>
+<body>
+    <button>GET</button>
+    <button>POST</button>
+    <button>AJAX</button>
+    <script>
+        const btn = document.getElementsByTagName('button');
+        btn[0].onclick = function (){
+            axios.get('http://127.0.0.1:8000/axios',{
+                //url参数
+                params:{
+                    id:100,
+                    vip:7
+                },
+                headers:{
+                    name:'Jack_Chen',
+                    age:21
+                }
+            }).then(response=>{
+                console.log(response);
+            });
+        }
+        btn[1].onclick = function (){
+            axios.post('http://127.0.0.1:8000/axios',{
+                username:"admin",
+                password:'admin'
+            },{
+                //url参数
+                params:{
+                    id:100,
+                    vip:7
+                },
+                headers:{
+                    name:'Jack_Chen',
+                    age:21
+                }
+            }).then(response=>{
+                console.log(response);
+            });
+        }
+        btn[2].onclick = function (){
+            axios({
+               url:"http://127.0.0.1:8000/axios",
+               params:{
+                   vip:5
+               },
+               headers:{
+                   a:100
+               },
+               data:{
+                   username: 'aa'
+               }
+            });
+        }
+    </script>
+</body>
+</html>

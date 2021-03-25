@@ -4,8 +4,7 @@
   "description": "这是创新实践的前端项目以及学习",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --watch src -e html,vue,js,less build/build.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",

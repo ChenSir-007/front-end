@@ -14,6 +14,13 @@ app.get('/server',(request,response)=>{
     //设置响应体
     response.send('Hello AJAX');
 });
+app.all('/axios',(request,response)=>{
+    //设置响应头  设置允许跨域
+    response.setHeader('Access-Control-Allow-Origin','*');
+    response.setHeader('Access-Control-Allow-Headers','*');
+    //设置响应体
+    response.send('Hello AJAX');
+});
 app.get('/ie',(request,response)=>{
     //设置响应头  设置允许跨域
     response.setHeader('Access-Control-Allow-Origin','*');
