@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件访问(父访问子)</title>
+</head>
+<body>
+<template id="cpn">
+    <h2>我是子组件</h2>
+</template>
+<script src="../vue.js"></script>
+<div id="app">
+    <cpn ref="a"></cpn>
+    <button @click="show">按钮</button>
+</div>
+<script>
+    const app = new Vue({
+       el: '#app',
+       data:{
+           message: 'Hell Vue'
+       },
+       methods: {
+           show(){
+               //$children不常用
+               // console.log(this.$children)
+               // this.$children[0].showMessage()
+               //$refs更常用,默认空对象
+               console.log(this.$refs.a)
+           }
+       },
+       components:{
+           cpn:{
+               template:`#cpn`,
+               methods:{
+                   showMessage(){
+                       console.log('showMessage')
+                   },
+                   btnclick(){
+                       //访问父组件$parent
+                       //访问根组件$root
+                   }
+               }
+           }
+       }
+    });
+</script>
+
+</body>
+</html>

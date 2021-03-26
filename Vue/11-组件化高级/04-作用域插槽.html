@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>slot插槽的基本使用</title>
+</head>
+<body>
+<template id="cpn">
+    <div>
+        <slot name="a" :list="pLanguages"></slot>
+    </div>
+</template>
+<script src="../vue.js"></script>
+<div id="app">
+<!--    Vue3.0新语法-->
+<!--    博客地址：https://blog.csdn.net/qq_34115899/article/details/104345084-->
+    <cpn>
+        <template v-slot:a="aa">
+            <span>{{aa.list.join('-')}}</span>
+        </template>
+    </cpn>
+</div>
+<script>
+    const app = new Vue({
+       el: '#app',
+       data:{
+           message: 'Hell Vue',
+           isShow:true
+       },
+       components:{
+           cpn:{
+               template:`#cpn`,
+               data(){
+                   return{
+                       pLanguages:['JavaScript','C','C++','Java','Python']
+                   }
+               }
+           }
+       }
+    });
+</script>
+
+</body>
+</html>

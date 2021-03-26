@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>父子组件通信案例</title>
+</head>
+<body>
+<template id="cpn">
+    <div>
+        <h2>父组件值为:{{number1}}</h2>
+        <h2>子组件值为:{{dnumber1}}</h2>
+        <input type="text" :value="dnumber1" @input="btnclick1">
+        <h2>父组件值为:{{number2}}</h2>
+        <h2>子组件值为:{{dnumber2}}</h2>
+        <input type="text" :value="dnumber2" @input="btnclick2">
+    </div>
+</template>
+<script src="../vue.js"></script>
+<div id="app">
+    <cpn :number1="num1" :number2="num2" @click1="clickchange1" @click2="clickchange2"></cpn>
+</div>
+<script>
+    const app = new Vue({
+       el: '#app',
+       data:{
+           num1:1,
+           num2:2
+       },
+       methods: {
+           clickchange1(n){
+               this.num1 = parseInt(n)
+           },
+           clickchange2(n){
+               this.num2 = parseInt(n)
+           }
+       },
+       components:{
+           cpn:{
+               template:`#cpn`,
+               props:{
+                   number1:Number,
+                   number2:Number
+               },
+               data(){
+                   return{
+                       dnumber1:this.number1,
+                       dnumber2:this.number2
+                   }
+               },
+               methods:{
+                   btnclick1(event) {
+                       this.dnumber1 = event.target.value
+                       this.$emit('click1',this.dnumber1)
+                   },
+                   btnclick2(event) {
+                       this.dnumber2 = event.target.value
+                       this.$emit('click2',this.dnumber2)
+                   }
+               }
+           }
+       }
+    });
+</script>
+
+</body>
+</html>
