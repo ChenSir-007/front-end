@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/ChenSir-007/front-end#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "vue": "^2.6.12"
   }
 }

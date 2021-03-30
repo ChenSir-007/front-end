@@ -38,6 +38,13 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\Vue\10-组件化开发\11-组件访问父访问子.html">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
         <entry key="\express\server.js">
           <value>
             <Attribute>
