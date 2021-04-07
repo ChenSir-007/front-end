@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
+    <file url="file://$PROJECT_DIR$/learnvuerouter" libraries="{Jack_Chen/learnvuerouter/node_modules}" />
+    <file url="file://$PROJECT_DIR$/vue_tabbar" libraries="{Jack_Chen/vue_tabbar/node_modules}" />
+    <file url="file://$PROJECT_DIR$/webpack/01-webpack使用/02-webpack配置和loader" libraries="{Jack_Chen/webpack/01-webpack使用/02-webpack配置和loader/node_modules}" />
     <file url="file://$PROJECT_DIR$/../nodejs/node_modules" libraries="{HTML, Jack_Chen/node_modules, jquery}" />
-    <file url="PROJECT" libraries="{HTML, Jack_Chen/node_modules, axios, jquery}" />
+    <file url="PROJECT" libraries="{HTML, Jack_Chen/learnvuerouter/node_modules, Jack_Chen/node_modules, Jack_Chen/vue_tabbar/node_modules, Jack_Chen/webpack/01-webpack使用/02-webpack配置和loader/node_modules, axios, jquery}" />
     <includedPredefinedLibrary name="HTTP Response Handler" />
     <includedPredefinedLibrary name="Node.js Core" />
   </component>
